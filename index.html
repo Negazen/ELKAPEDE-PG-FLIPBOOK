@@ -1,57 +1,172 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Digital Flipbooks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELKAPEDE | Flipbook Pegangan Guru</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #f7f7f7;
-      padding: 24px;
+      background: #f5f7fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
+
+    header {
+      background: linear-gradient(135deg, #0f4c81, #1b7fc1);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
     }
+
+    header img {
+      height: 60px;
+      margin: 5px;
+    }
+
     h1 {
+      margin-top: 15px;
+      font-size: 28px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      margin-top: 8px;
+      opacity: 0.95;
+    }
+
+    .motto {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      margin-bottom: 20px;
       text-align: center;
     }
-    a {
+
+    .btn {
       display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 12px auto;
+      padding: 14px;
+      border-radius: 10px;
+      border: none;
       background: white;
-      padding: 16px;
-      margin-bottom: 12px;
-      text-decoration: none;
-      color: #000;
-      border-radius: 8px;
-      border: 1px solid #ddd;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: 0.2s;
     }
-    a:hover {
-      background: #f0f0f0;
+
+    .btn:hover {
+      background: #eef5ff;
+      transform: translateY(-2px);
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>Digital Flipbooks</h1>
-    <p>Select a book:</p>
 
-    <a href="https://online.fliphtml5.com/ELKADIGI/pfab/"_blank">
-      📘 PG LKS ELKAPEDE KODING & KECERDASAN ARTIFISIAL SD 5 SEMESTER 2
-    </a>
-    <a href="https://online.fliphtml5.com/ELKADIGI/PG-LKS-ELKAPEDE-BAHASA-INDONESIA-SD-5-S2/"_blank">
-      📘 PG LKS ELKAPEDE BAHASA INDONESIA SD 5 SEMESTER 2
-    </a>
-    <a href="https://online.fliphtml5.com/ELKADIGI/PG-LKS-ELKAPEDE-INGGRIS-SD-5-S2/" target="_blank">
-      📘 PG LKS ELKAPEDE INGGRIS SD 5 SEMESTER 2
-    </a>
-    <a href="https://online.fliphtml5.com/ELKADIGI/PG-LKS-ELKAPEDE-IPAS-SD-5-S2/"_blank">
-      📘 PG LKS ELKAPEDE IPAS SD 5  SEMESTER 2
-    </a>
-    <a href="https://online.fliphtml5.com/ELKADIGI/whgk/"_blank">
-      📘 PG LKS ELKAPEDE MATEMATIKA SD 5 SEMESTER 2
-    </a>
+<body>
+
+<header>
+  <!-- LOGO AREA -->
+  <div>
+    <img src="assets/logo-elkepede.png" alt="ELKAPEDE">
+    <img src="assets/logo-gph.png" alt="Gubuk Pustaka Harmoni">
+    <img src="assets/logo-garuda.png" alt="GARUDA">
   </div>
+
+  <h1>Selamat Datang di Layanan Flipbook Pegangan Guru ELKAPEDE</h1>
+  <div class="subtitle">
+    Inovasi pembelajaran digital oleh CV Gubuk Pustaka Harmoni
+  </div>
+  <div class="motto">
+    GARUDA — Generasi Rajin, Unggul, dan Berdaya Saing
+  </div>
+</header>
+
+<main>
+
+  <!-- JENJANG -->
+  <div id="jenjang">
+    <div class="section-title">Pilih Jenjang Pendidikan</div>
+
+    <button class="btn" onclick="showSD()">Sekolah Dasar (SD)</button>
+    <button class="btn" disabled>Sekolah Menengah Pertama (SMP) — segera hadir</button>
+  </div>
+
+  <!-- SD -->
+  <div id="sd" class="hidden">
+    <div class="section-title">SD — Pilih Kelas</div>
+
+    <button class="btn" onclick="showKelas5()">Kelas 5</button>
+    <button class="btn" disabled>Kelas lainnya menyusul</button>
+
+    <button class="btn" onclick="backToJenjang()">⬅ Kembali</button>
+  </div>
+
+  <!-- KELAS 5 -->
+  <div id="kelas5" class="hidden">
+    <div class="section-title">Flipbook ELKAPEDE SD Kelas 5</div>
+
+    <a class="btn" href="LINK-KODING.html" target="_blank">📘 Koding & Kecerdasan Artifisial</a>
+    <a class="btn" href="LINK-BINDO.html" target="_blank">📗 Bahasa Indonesia</a>
+    <a class="btn" href="LINK-INGGRIS.html" target="_blank">📕 Bahasa Inggris</a>
+    <a class="btn" href="LINK-IPAS.html" target="_blank">📙 IPAS</a>
+    <a class="btn" href="LINK-MATEMATIKA.html" target="_blank">📒 Matematika</a>
+
+    <button class="btn" onclick="backToSD()">⬅ Kembali</button>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 CV Gubuk Pustaka Harmoni • ELKAPEDE untuk Pendidikan Indonesia
+</footer>
+
+<script>
+  function showSD() {
+    document.getElementById("jenjang").classList.add("hidden");
+    document.getElementById("sd").classList.remove("hidden");
+  }
+
+  function showKelas5() {
+    document.getElementById("sd").classList.add("hidden");
+    document.getElementById("kelas5").classList.remove("hidden");
+  }
+
+  function backToJenjang() {
+    document.getElementById("sd").classList.add("hidden");
+    document.getElementById("jenjang").classList.remove("hidden");
+  }
+
+  function backToSD() {
+    document.getElementById("kelas5").classList.add("hidden");
+    document.getElementById("sd").classList.remove("hidden");
+  }
+</script>
+
 </body>
 </html>
